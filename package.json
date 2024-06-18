@@ -1,0 +1,74 @@
+{
+  "name": "myjkt",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "start": "vite --host",
+    "serve": "vite --host",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build --force",
+    "lint:js": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "lint:style": "stylelint **/*.{vue,css}",
+    "spellcheck": "cspell lint --dot --gitignore --color --cache --show-suggestions \"src/**/*.@(html|js|cjs|mjs|ts|tsx|css|scss|md|vue)\"",
+    "lint": "run-p lint:stage spellcheck",
+    "prepare": "husky install",
+    "lint:stage": "lint-staged",
+    "commit": "cz-git",
+    "commitlint": "commitlint --edit"
+  },
+  "lint-staged": {
+    "*.{html,vue,css,sass,scss,ts}": "prettier --write",
+    "*.{ts}": "eslint --fix",
+    "*.{vue,css,sass,scss}": "stylelint --fix"
+  },
+  "config": {
+      "commitizen": {
+          "path": "node_modules/cz-git"
+      }
+  },
+  "dependencies": {
+    "antd": "^5.18.0",
+    "axios": "^1.7.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  },
+  "devDependencies": {
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@tsconfig/node20": "^20.1.2",
+    "@types/node": "^20.11.28",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
+    "@vue/tsconfig": "^0.5.1",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "npm-run-all2": "^6.1.2",
+    "prettier": "^3.2.5",
+    "typescript": "~5.4.0",
+    "vite": "^5.1.6",
+    "vite-plugin-vue-devtools": "^7.0.18",
+    "vue-tsc": "^2.0.6",
+    "stylelint": "15.10.2",
+    "stylelint-config-standard": "34.0.0",
+    "stylelint-config-prettier": "9.0.5",
+    "stylelint-config-html": "1.1.0",
+    "stylelint-config-vue": "1.0.0",
+    "cspell": "6.31.2",
+    "@commitlint/cli": "17.6.7",
+    "@commitlint/config-conventional": "17.6.7",
+    "@commitlint/cz-commitlint": "17.6.7",
+    "commitizen": "4.3.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "cz-git": "1.7.0",
+    "zx": "7.2.3",
+    "tsno": "2.0.0"
+  }
+}
